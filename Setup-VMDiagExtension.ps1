@@ -118,7 +118,7 @@ switch ($scope) {
                 Update-AzVM -ResourceGroupName $vm.ResourceGroupName -VM $vm -IdentityType SystemAssigned -NoWait
 
                 ## Get the config file
-                Invoke-WebRequest https://raw.githubusercontent.com/mrcloudchase/Azure/master/wad-settings.json -OutFile azure-wad-settings.json
+                Invoke-WebRequest https://raw.githubusercontent.com/mrcloudchase/AzureAutomation/main/wad-settings.json -OutFile azure-wad-settings.json
 
                 ## Generate a SAS token for the agent to use to authenticate with the storage account
                 $sasToken = New-AzStorageAccountSASToken -Service Blob, Table -ResourceType Service, Container, Object -Permission "racwdlup" -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountResourceGroup -AccountName $storageAccountName).Context -ExpiryTime $([System.DateTime]::Now.AddYears(10))
@@ -145,7 +145,7 @@ switch ($scope) {
                 Update-AzVM -ResourceGroupName $vm.ResourceGroupName -VM $vm -IdentityType SystemAssigned -NoWait
 
                 # Get the public settings template from GitHub and update the templated values for the storage account and resource ID
-                $publicSettings = (Invoke-WebRequest -Uri https://raw.githubusercontent.com/mrcloudchase/Azure/master/lad-settings.json).Content
+                $publicSettings = (Invoke-WebRequest -Uri https://raw.githubusercontent.com/mrcloudchase/AzureAutomation/main/lad-settings.json).Content
                 $publicSettings = $publicSettings.Replace('mystorageaccount', $storageAccountName)
                 $publicSettings = $publicSettings.Replace('vmID', $vmId)
 
@@ -197,7 +197,7 @@ switch ($scope) {
                 Update-AzVM -ResourceGroupName $vm.ResourceGroupName -VM $vm -IdentityType SystemAssigned -NoWait
 
                 ## Get the config file
-                Invoke-WebRequest https://raw.githubusercontent.com/mrcloudchase/Azure/master/wad-settings.json -OutFile azure-wad-settings.json
+                Invoke-WebRequest https://raw.githubusercontent.com/mrcloudchase/AzureAutomation/main/wad-settings.json -OutFile azure-wad-settings.json
 
                 ## Generate a SAS token for the agent to use to authenticate with the storage account
                 $sasToken = New-AzStorageAccountSASToken -Service Blob, Table -ResourceType Service, Container, Object -Permission "racwdlup" -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountResourceGroup -AccountName $storageAccountName).Context -ExpiryTime $([System.DateTime]::Now.AddYears(10))
@@ -224,7 +224,7 @@ switch ($scope) {
                 Update-AzVM -ResourceGroupName $vm.ResourceGroupName -VM $vm -IdentityType SystemAssigned -NoWait
 
                 # Get the public settings template from GitHub and update the templated values for the storage account and resource ID
-                $publicSettings = (Invoke-WebRequest -Uri https://raw.githubusercontent.com/mrcloudchase/Azure/master/lad-settings.json).Content
+                $publicSettings = (Invoke-WebRequest -Uri https://raw.githubusercontent.com/mrcloudchase/AzureAutomation/main/lad-settings.json).Content
                 $publicSettings = $publicSettings.Replace('mystorageaccount', $storageAccountName)
                 $publicSettings = $publicSettings.Replace('vmID', $vmId)
 
@@ -283,7 +283,7 @@ switch ($scope) {
                 Update-AzVM -ResourceGroupName $vm.ResourceGroupName -VM $vm -IdentityType SystemAssigned -NoWait
                 
                 ## Get the config file
-                Invoke-WebRequest https://raw.githubusercontent.com/mrcloudchase/Azure/master/wad-settings.json -OutFile azure-wad-settings.json
+                Invoke-WebRequest https://raw.githubusercontent.com/mrcloudchase/AzureAutomation/main/wad-settings.json -OutFile azure-wad-settings.json
 
                 ## Generate a SAS token for the agent to use to authenticate with the storage account
                 $sasToken = New-AzStorageAccountSASToken -Service Blob, Table -ResourceType Service, Container, Object -Permission "racwdlup" -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountResourceGroup -AccountName $storageAccountName).Context -ExpiryTime $([System.DateTime]::Now.AddYears(10))
@@ -310,7 +310,7 @@ switch ($scope) {
                 Update-AzVM -ResourceGroupName $vm.ResourceGroupName -VM $vm -IdentityType SystemAssigned -NoWait
 
                 # Get the public settings template from GitHub and update the templated values for the storage account and resource ID
-                $publicSettings = (Invoke-WebRequest -Uri https://raw.githubusercontent.com/mrcloudchase/Azure/master/lad-settings.json).Content
+                $publicSettings = (Invoke-WebRequest -Uri https://raw.githubusercontent.com/mrcloudchase/AzureAutomation/main/lad-settings.json).Content
                 $publicSettings = $publicSettings.Replace('mystorageaccount', $storageAccountName)
                 $publicSettings = $publicSettings.Replace('vmID', $vmId)
 
