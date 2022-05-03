@@ -82,6 +82,9 @@ function Get-TimeStamp {
     
 }
 
+# Ask user to name the output file
+$outFileName = Read-Host -Prompt "Enter a name for the output file "
+
 # Set counter to 0
 $counter = 0
 
@@ -91,7 +94,7 @@ switch ($scope) {
     "-s" {
 
         # Write out scope selected to file
-        Write-Output "Subscription scope selected - SUB: $scopeResource - $(Get-TimeStamp)" | Out-File scriptlog.txt -Append
+        Write-Output "Subscription scope selected - SUB: $scopeResource - $(Get-TimeStamp)" | Out-File "$outFileName.txt" -Append
 
         # Set subscription context
         Set-AzContext -Subscription $scopeResource
@@ -162,7 +165,7 @@ switch ($scope) {
             } 
 
             # Print out timestamp and iteration to file
-            Write-Output "Iteration: $counter - $(Get-TimeStamp)" | Out-File scriptlog.txt -Append
+            Write-Output "Iteration: $counter - $(Get-TimeStamp)" | Out-File "$outFileName.txt" -Append
             
             # Increment counter
             $counter++
@@ -173,7 +176,7 @@ switch ($scope) {
     "-g" {
 
         # Write out scope selected to file
-        Write-Output "Resource group scope selected - RG: $scopeResource - $(Get-TimeStamp)" | Out-File scriptlog.txt -Append
+        Write-Output "Resource group scope selected - RG: $scopeResource - $(Get-TimeStamp)" | Out-File "$outFileName.txt" -Append
 
         # Get all the VMs in the resource group
         $vms = Get-AzVM -ResourceGroupName $scopeResource
@@ -241,8 +244,15 @@ switch ($scope) {
             } 
             
             # Print out VM, timestamp, and iteration to file
-            Write-Output "VM: $vmName - Iteration: $counter - $(Get-TimeStamp)" | Out-File scriptlog.txt -Append
+            Write-Output "VM: $vmName - Iteration: $counter - $(Get-TimeStamp)" | Out-File "$outFileName.txt" -Append
 
+            # Tell user where the output file is
+            Write-Host "Log file: $outFileName.txt"
+
+            # If counter is 10 then stop the loop
+            if ($counter -eq 10) {
+                break
+            }
             # Increment counter
             $counter++
         }
