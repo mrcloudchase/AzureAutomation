@@ -5,7 +5,7 @@
             "DiagnosticMonitorConfiguration": {
                 "overallQuotaInMB": 5120,
                 "Metrics": {
-                    "resourceId": "/subscriptions/a362b710-5701-4fbc-8d74-c2d4e344427f/resourceGroups/savista-m3-rg/providers/Microsoft.Compute/virtualMachines/savista-m3-windows-vm-01",
+                    "resourceId": "vmID",
                     "MetricAggregation": [
                         {
                             "scheduledTransferPeriod": "PT1H"
