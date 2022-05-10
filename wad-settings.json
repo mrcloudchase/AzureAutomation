@@ -1,5 +1,14 @@
 {
     "PublicConfig": {
+        "sinksConfig": {
+            "sink": [
+                {
+                    "name": "AzMonSink",
+                    "type": "AzMonSink",
+                    "AzureMonitor": {}
+                }
+            ]
+        },
         "StorageAccount": "mystorageaccount",
         "WadCfg": {
             "DiagnosticMonitorConfiguration": {
