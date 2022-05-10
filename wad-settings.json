@@ -1,15 +1,6 @@
 {
     "PublicConfig": {
-        "sinksConfig": {
-            "sink": [
-                {
-                    "name": "AzMonSink",
-                    "type": "AzMonSink",
-                    "AzureMonitor": {}
-                }
-            ]
-        },
-        "StorageAccount": "mystorageaccount",
+        "storageAccount": "mystorageaccount",
         "WadCfg": {
             "DiagnosticMonitorConfiguration": {
                 "overallQuotaInMB": 5120,
@@ -25,7 +16,8 @@
                     ]
                 },
                 "DiagnosticInfrastructureLogs": {
-                    "scheduledTransferLogLevelFilter": "Error"
+                    "scheduledTransferLogLevelFilter": "Error",
+                    "scheduledTransferPeriod": "PT1M"
                 },
                 "PerformanceCounters": {
                     "scheduledTransferPeriod": "PT1M",
@@ -260,22 +252,34 @@
                             "unit": "Count",
                             "sampleRate": "PT60S"
                         }
-                    ]
+                    ],
+                    "sinks": "AzureMonitor"
                 },
                 "WindowsEventLog": {
                     "scheduledTransferPeriod": "PT1M",
                     "DataSource": [
                         {
-                            "name": "Application!*[System[(Level = 1 or Level = 2 or Level = 3)]]"
+                            "name": "Application!*[System[(Level=1 or Level=2 or Level=3)]]"
                         },
                         {
-                            "name": "Security!*[System[band(Keywords,4503599627370496)]]"
+                            "name": "System!*[System[(Level=1 or Level=2 or Level=3)]]"
                         },
                         {
-                            "name": "System!*[System[(Level = 1 or Level = 2 or Level = 3)]]"
+                            "name": "Security!*[System[(band(Keywords,4503599627370496))]]"
                         }
                     ]
+                },
+                "Directories": {
+                    "scheduledTransferPeriod": "PT1M"
                 }
+            },
+            "SinksConfig": {
+                "Sink": [
+                    {
+                        "AzureMonitor": {},
+                        "name": "AzureMonitor"
+                    }
+                ]
             }
         }
     },
