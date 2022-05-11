@@ -8,7 +8,7 @@
             }
         ]
     },
-    "StorageAccount": "mystorageaccount",
+    "StorageAccount": "mystorageaccountname",
     "ladCfg": {
         "diagnosticMonitorConfiguration": {
             "eventVolume": "Medium",
