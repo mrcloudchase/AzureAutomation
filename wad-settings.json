@@ -1,6 +1,6 @@
 {
     "PublicConfig": {
-        "storageAccount": "mystorageaccount",
+        "storageAccount": "mystorageaccountname",
         "WadCfg": {
             "DiagnosticMonitorConfiguration": {
                 "overallQuotaInMB": 5120,
@@ -284,8 +284,8 @@
         }
     },
     "PrivateConfig": {
-        "storageAccountName": "mystorageaccount",
+        "storageAccountName": "mystorageaccountname",
         "storageAccountKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-        "storageAccountEndPoint": "https://mystorageaccount.blob.core.windows.net"
+        "storageAccountEndPoint": "https://mystorageaccountname.blob.core.windows.net"
     }
 }
