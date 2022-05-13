@@ -80,8 +80,8 @@ $vmCollection | Foreach-Object -ThrottleLimit 2 -Parallel {
         $sasToken = New-AzStorageAccountSASToken -Service Blob, Table -ResourceType Service, Container, Object -Permission "racwdlup" -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountResourceGroup -AccountName $storageAccountName).Context -ExpiryTime $([System.DateTime]::Now.AddYears(10))
 
         # Build the protected settings (storage account SAS token)
-        $protectedSettings = "{'storageAccountName': '$storageAccountName', 'storageAccountSasToken': '$sasToken'}"
-
+        $protectedSettings = "{'storageAccountName': '$storageAccountName', 'storageAccountSasToken': '$sasToken', 'sinksConfig': {'sink': [{'name': 'SyslogJsonBlob', 'type': 'JsonBlob'}, {'name': 'FilelogJsonBlob', 'type': 'JsonBlob'}, {'name': 'MyJsonMetricsBlob', 'type': 'JsonBlob'}]}}"
+        
         # Finally, install the extension with the settings you built
         Set-AzVMExtension -ResourceGroupName $vmResourceGroup -VMName $vmName -Location $vmLocation -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 4.0 -NoWait
     } 
