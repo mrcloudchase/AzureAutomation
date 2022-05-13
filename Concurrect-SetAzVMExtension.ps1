@@ -1,5 +1,13 @@
 # Retrieve all the VM Extensions enabled for all VMs in a subscription for the current context
 
+
+[CmdletBinding(SupportsShouldProcess = $true)]
+    param
+    (
+        [Parameter(Mandatory = $true)][string]$stgAcctName,
+        [Parameter(mandatory = $true)][string]$stgAcctRG
+    )
+
 # Get VM Collection
 $vmCollection = Get-AzVM
 
@@ -24,8 +32,8 @@ $vmCollection | Foreach-Object -ThrottleLimit 2 -Parallel {
     }
 
     # Storage Account Variables
-    $storageAccountName = "savistam3rgdiag"
-    $storageAccountResourceGroup = "savista-m3-rg"
+    $storageAccountName = $using:stgAcctName
+    $storageAccountResourceGroup = $using:stgAcctRG
     $ProgressPreference = 'SilentlyContinue'
 
     # Check if the vm is Windows or Linux
