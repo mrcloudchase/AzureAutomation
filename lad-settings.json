@@ -8,7 +8,7 @@
             }
         ]
     },
-    "StorageAccount": "mystorageaccountname",
+    "StorageAccount": "chasecbtscloudshell",
     "StorageType": "Blob",
     "ladCfg": {
         "diagnosticMonitorConfiguration": {
@@ -22,9 +22,10 @@
                         "scheduledTransferPeriod": "PT1H"
                     }
                 ],
-                "resourceId": "vmID"
+                "resourceId": "/subscriptions/a362b710-5701-4fbc-8d74-c2d4e344427f/resourceGroups/test-linux-log-vm-01_group/providers/Microsoft.Compute/virtualMachines/test-linux-log-vm-01"
             },
             "performanceCounters": {
+                "sinks": "LinuxMetricsBlob,AzMonSink",
                 "performanceCounterConfiguration": [
                     {
                         "class": "processor",
@@ -727,31 +728,31 @@
                         "unit": "Count",
                         "sampleRate": "PT15S"
                     }
-                ],
-                "sinks": "AzMonSink"
+                ]
             },
             "syslogEvents": {
+                "sinks": "SyslogJsonBlob,AzMonSink",
                 "syslogEventConfiguration": {
-                    "LOG_AUTH": "LOG_ERR",
-                    "LOG_AUTHPRIV": "LOG_ERR",
-                    "LOG_CRON": "LOG_ERR",
-                    "LOG_DAEMON": "LOG_ERR",
-                    "LOG_FTP": "LOG_ERR",
-                    "LOG_KERN": "LOG_ERR",
-                    "LOG_LOCAL0": "LOG_ERR",
-                    "LOG_LOCAL1": "LOG_ERR",
-                    "LOG_LOCAL2": "LOG_ERR",
-                    "LOG_LOCAL3": "LOG_ERR",
-                    "LOG_LOCAL4": "LOG_ERR",
-                    "LOG_LOCAL5": "LOG_ERR",
-                    "LOG_LOCAL6": "LOG_ERR",
-                    "LOG_LOCAL7": "LOG_ERR",
-                    "LOG_LPR": "LOG_ERR",
-                    "LOG_MAIL": "LOG_ERR",
-                    "LOG_NEWS": "LOG_ERR",
-                    "LOG_SYSLOG": "LOG_ERR",
-                    "LOG_USER": "LOG_ERR",
-                    "LOG_UUCP": "LOG_ERR"
+                    "LOG_AUTH": "LOG_DEBUG",
+                    "LOG_AUTHPRIV": "LOG_DEBUG",
+                    "LOG_CRON": "LOG_DEBUG",
+                    "LOG_DAEMON": "LOG_DEBUG",
+                    "LOG_FTP": "LOG_DEBUG",
+                    "LOG_KERN": "LOG_DEBUG",
+                    "LOG_LOCAL0": "LOG_DEBUG",
+                    "LOG_LOCAL1": "LOG_DEBUG",
+                    "LOG_LOCAL2": "LOG_DEBUG",
+                    "LOG_LOCAL3": "LOG_DEBUG",
+                    "LOG_LOCAL4": "LOG_DEBUG",
+                    "LOG_LOCAL5": "LOG_DEBUG",
+                    "LOG_LOCAL6": "LOG_DEBUG",
+                    "LOG_LOCAL7": "LOG_DEBUG",
+                    "LOG_LPR": "LOG_DEBUG",
+                    "LOG_MAIL": "LOG_DEBUG",
+                    "LOG_NEWS": "LOG_DEBUG",
+                    "LOG_SYSLOG": "LOG_DEBUG",
+                    "LOG_USER": "LOG_DEBUG",
+                    "LOG_UUCP": "LOG_DEBUG"
                 }
             }
         },
