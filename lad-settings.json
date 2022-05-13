@@ -9,7 +9,6 @@
         ]
     },
     "StorageAccount": "chasecbtscloudshell",
-    "StorageType": "Blob",
     "ladCfg": {
         "diagnosticMonitorConfiguration": {
             "eventVolume": "Medium",
