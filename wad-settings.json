@@ -1,6 +1,7 @@
 {
     "PublicConfig": {
         "StorageAccount": "mystorageaccountname",
+        "StorageType": "Blob"
         "WadCfg": {
           "DiagnosticMonitorConfiguration": {
             "overallQuotaInMB": 5120,
