@@ -9,7 +9,7 @@
         ]
     },
     "StorageAccount": "mystorageaccountname",
-    "StorageType": "Blob"
+    "StorageType": "Blob",
     "ladCfg": {
         "diagnosticMonitorConfiguration": {
             "eventVolume": "Medium",
