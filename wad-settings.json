@@ -285,7 +285,7 @@
     }
   },
   "PrivateConfig": {
-    "storageAccountName": "mystorageaccount",
+    "storageAccountName": "mystorageaccountname",
     "storageAccountKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     "storageAccountEndPoint": "https://mystorageaccount.blob.core.windows.net"
   }
