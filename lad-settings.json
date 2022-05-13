@@ -24,7 +24,7 @@
                 "resourceId": "/subscriptions/a362b710-5701-4fbc-8d74-c2d4e344427f/resourceGroups/test-linux-log-vm-01_group/providers/Microsoft.Compute/virtualMachines/test-linux-log-vm-01"
             },
             "performanceCounters": {
-                "sinks": "LinuxMetricsBlob,AzMonSink",
+                "sinks": "linuxmetricsblob,AzMonSink",
                 "performanceCounterConfiguration": [
                     {
                         "class": "processor",
@@ -730,7 +730,7 @@
                 ]
             },
             "syslogEvents": {
-                "sinks": "SyslogJsonBlob,AzMonSink",
+                "sinks": "syslogjsonblob,AzMonSink",
                 "syslogEventConfiguration": {
                     "LOG_AUTH": "LOG_DEBUG",
                     "LOG_AUTHPRIV": "LOG_DEBUG",
