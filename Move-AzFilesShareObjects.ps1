@@ -111,7 +111,7 @@ $sourceStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $sourceSt
 # Create a new Azure Storage Context for the source storage account, which is required for Az.Storage Cmdlets
 $sourceContext = New-AzStorageContext -StorageAccountName $sourceStorageAccountName -StorageAccountKey $sourceStorageAccountKey
 # Get all Azure Files shares using the Storage Context and save as an array in a variable
-$shares = Get-AzStorageShare -Context $sourceContext | Where-Object { $_.Name -eq $targetStorageFileShareName }
+$shares = Get-AzStorageShare -Context $sourceContext | Where-Object { $_.Name -ne $targetStorageFileShareName }
 # Generate source file share SAS URI Token with read, delete, and list permission w/ an expiration of 1 day
 $sourceShareSASURI = New-AzStorageAccountSASToken -Context $sourceContext `
     -Service File -ResourceType Service, Container, Object -ExpiryTime(get-date).AddDays(1) -Permission "rdl"
